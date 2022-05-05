@@ -3,6 +3,8 @@ package mysql
 import (
 	"database/sql"
 	"os"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 type IMySQL interface {
@@ -14,8 +16,13 @@ type MySQL struct {
 }
 
 func NewMySQL() IMySQL {
-	c, err := sql.Open("mysql", "root:root@tcp(localhost:3306)/react-cathup?parseTime=true")
+	c, err := sql.Open("mysql", "root:root@tcp(localhost:3306)/react_catchup?parseTime=true")
 	if err != nil {
+		println(err.Error())
+		os.Exit(1)
+	}
+	if err := c.Ping(); err != nil {
+		println(err.Error())
 		os.Exit(1)
 	}
 	return MySQL{
