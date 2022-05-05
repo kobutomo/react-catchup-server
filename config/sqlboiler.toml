@@ -1,4 +1,4 @@
-output   = "dbmodels"
+pkgname  = "dbmodels"
 no-tests = true
 wipe     = true
 [mysql]

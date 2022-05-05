@@ -7,5 +7,5 @@ docker-compose -f ./docker-compose.dev.yaml up --build -d
 
 ## SQLBoiler
 ```
-sqlboiler mysql -o ./src/infrastructure/dbmodels -c config/sqlboiler.toml
+sqlboiler mysql -o ./server/infrastructure/dbmodels -c config/sqlboiler.toml
 ```
